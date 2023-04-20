@@ -216,3 +216,55 @@ html {
 .text-hover:hover {
   text-shadow: -2px 2px var(--cor-3);
 }
+
+.pkm__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+.pkm__search {
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 2px solid var(--cor-4);
+  text-align: center;
+}
+
+.pkm__show {
+  border: 4px solid var(--cor-4);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  width: 35%;
+}
+
+.pkm__itens {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+hr {
+  border: none;
+}
+
+.line {
+  margin: 0.5em 0;
+  border-bottom: 2px dashed var(--cor-4);
+  width: 100%;
+}
+
+.pkm-image {
+  width: 200px;
+  height: 200px;
+}
+
+.pkm__stats > p {
+  padding: 0.5em 0;
+}
