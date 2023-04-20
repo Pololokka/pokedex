@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
 html,
 body,
 div,
@@ -164,4 +166,53 @@ select {
   font-size: inherit;
   font-weight: inherit;
   font-family: inherit;
+}
+
+/*estilização geral*/
+
+:root {
+  --standard-font: "Press Start 2P", cursive;
+  --size-big: 3rem;
+  --size-med: 2rem;
+  --size-small: 1rem;
+
+  --cor-1: #f4febf;
+  --cor-2: #9ad942;
+  --cor-3: #04815c;
+  --cor-4: #082c44;
+}
+
+html {
+  background-color: var(--cor-1);
+}
+
+.header {
+  text-align: center;
+  padding: 2em;
+}
+
+.title {
+  font-family: var(--standard-font);
+  font-size: var(--size-big);
+  color: var(--cor-4);
+}
+
+.subtitle {
+  font-family: var(--standard-font);
+  font-size: var(--size-med);
+  color: var(--cor-4);
+}
+
+.text {
+  font-family: var(--standard-font);
+  font-size: var(--size-small);
+  color: var(--cor-4);
+}
+
+.font-hover:hover {
+  text-shadow: -3px 3px var(--cor-3);
+}
+
+.text-hover:hover {
+  text-shadow: -2px 2px var(--cor-3);
 }
