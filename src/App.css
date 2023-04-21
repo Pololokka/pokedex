@@ -217,6 +217,10 @@ html {
   text-shadow: -2px 2px var(--cor-3);
 }
 
+.pkm-name {
+  text-transform: capitalize;
+}
+
 .pkm__container {
   display: flex;
   flex-direction: column;
