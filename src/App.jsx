@@ -21,22 +21,28 @@ function App() {
     const APIFetch = await fetch(
       `https://pokeapi.co/api/v2/pokemon/${pokemon}`
     );
-    const data = await APIFetch.json();
-    return data;
+    if (APIFetch.status === 200) {
+      const data = await APIFetch.json();
+      return data;
+    } else if (APIFetch.status === 404) {
+      console.log("erro");
+    }
   };
 
   const showPokemon = async (pokemon) => {
     const data = await fetchPokemon(pokemon);
     console.log(data);
-    setShownPokemon({
-      img:
-        data.sprites.versions["generation-v"]["black-white"].animated
-          .front_default || data.sprites.front_default,
-      name: data.name,
-      id: data.id,
-      height: data.height / 10,
-      weight: data.weight / 10,
-    });
+    if (data) {
+      setShownPokemon({
+        img:
+          data.sprites.versions["generation-v"]["black-white"].animated
+            .front_default || data.sprites.front_default,
+        name: data.name,
+        id: data.id,
+        height: data.height / 10,
+        weight: data.weight / 10,
+      });
+    }
   };
 
   return (
