@@ -27,6 +27,7 @@ function App() {
   const showPokemon = async (pokemon) => {
     const data = await fetchPokemon(pokemon);
     console.log(data);
+    console.log("teste");
     setShownPokemon({
       img: data.sprites.front_default,
       name: data.name,
