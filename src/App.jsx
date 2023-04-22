@@ -4,13 +4,14 @@ import "./App.css";
 const initialPokemon = {
   img: "",
   name: "",
+  id: "",
   height: "",
   weight: "",
 };
 
 function App() {
   const [shownPokemon, setShownPokemon] = useState(initialPokemon);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState("arcanine");
 
   useEffect(() => {
     showPokemon(input);
@@ -27,10 +28,12 @@ function App() {
   const showPokemon = async (pokemon) => {
     const data = await fetchPokemon(pokemon);
     console.log(data);
-    console.log("teste");
     setShownPokemon({
-      img: data.sprites.front_default,
+      img:
+        data.sprites.versions["generation-v"]["black-white"].animated
+          .front_default || data.sprites.front_default,
       name: data.name,
+      id: data.id,
       height: data.height / 10,
       weight: data.weight / 10,
     });
@@ -67,6 +70,7 @@ function App() {
                 <p className="text text-hover pkm-name">
                   Nome: {shownPokemon.name}
                 </p>
+                <p className="text text-hover">Número: {shownPokemon.id}</p>
                 <p className="text text-hover">
                   Altura: {shownPokemon.height} m
                 </p>

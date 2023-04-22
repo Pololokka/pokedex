@@ -265,8 +265,9 @@ hr {
 }
 
 .pkm-image {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
+  padding-left: 2em;
 }
 
 .pkm__stats > p {
