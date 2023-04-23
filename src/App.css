@@ -217,6 +217,17 @@ html {
   text-shadow: -2px 2px var(--cor-3);
 }
 
+.btn-stan {
+  padding: 1em;
+  background-color: var(--cor-2);
+  border-radius: 5px;
+  transition: 100ms;
+}
+
+.btn-stan:hover {
+  box-shadow: -3px 3px var(--cor-3);
+}
+
 .pkm-name {
   text-transform: capitalize;
 }

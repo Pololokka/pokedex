@@ -9,13 +9,25 @@ const initialPokemon = {
   weight: "",
 };
 
+const loadPokemon = {
+  img: "Carregando...",
+  name: "Carregando...",
+  id: "Carregando...",
+  height: "Carregando...",
+  weight: "Carregando...",
+};
+
+const errorPokemon = {
+  img: "NA",
+  name: "NA",
+  id: "NA",
+  height: "NA",
+  weight: "NA",
+};
+
 function App() {
   const [shownPokemon, setShownPokemon] = useState(initialPokemon);
   const [input, setInput] = useState("arcanine");
-
-  useEffect(() => {
-    showPokemon(input);
-  }, [input]);
 
   const fetchPokemon = async (pokemon) => {
     const APIFetch = await fetch(
@@ -30,6 +42,7 @@ function App() {
   };
 
   const showPokemon = async (pokemon) => {
+    setShownPokemon(loadPokemon);
     const data = await fetchPokemon(pokemon);
     console.log(data);
     if (data) {
@@ -42,7 +55,7 @@ function App() {
         height: data.height / 10,
         weight: data.weight / 10,
       });
-    }
+    } else setShownPokemon(errorPokemon);
   };
 
   return (
@@ -65,7 +78,16 @@ function App() {
             }
             placeholder="nome ou número"
           />
+          <input
+            type="button"
+            value="Pesquisar!"
+            className="text text-hover btn-stan"
+            onClick={() => showPokemon(input)}
+          />
           <div className="pkm__show">
+            {shownPokemon.name == "NA" && (
+              <p className="text text-hover">Pokémon não encontrado!</p>
+            )}
             <div className="pkm__itens">
               <img
                 src={shownPokemon.img}
