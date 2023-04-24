@@ -7,6 +7,7 @@ const initialPokemon = {
   id: "",
   height: "",
   weight: "",
+  abilities: [],
 };
 
 const loadPokemon = {
@@ -15,6 +16,7 @@ const loadPokemon = {
   id: "Carregando...",
   height: "Carregando...",
   weight: "Carregando...",
+  abilities: [],
 };
 
 const errorPokemon = {
@@ -23,6 +25,7 @@ const errorPokemon = {
   id: "NA",
   height: "NA",
   weight: "NA",
+  abilities: [],
 };
 
 function App() {
@@ -36,8 +39,6 @@ function App() {
     if (APIFetch.status === 200) {
       const data = await APIFetch.json();
       return data;
-    } else if (APIFetch.status === 404) {
-      console.log("erro");
     }
   };
 
@@ -54,6 +55,7 @@ function App() {
         id: data.id,
         height: data.height / 10,
         weight: data.weight / 10,
+        abilities: data.abilities,
       });
     } else setShownPokemon(errorPokemon);
   };
@@ -95,7 +97,7 @@ function App() {
                 className="pkm-image"
               />
               <div className="pkm__stats">
-                <p className="text text-hover pkm-name">
+                <p className="text text-hover pkm-capitalize">
                   Nome: {shownPokemon.name}
                 </p>
                 <p className="text text-hover">Número: {shownPokemon.id}</p>
@@ -108,6 +110,21 @@ function App() {
               </div>
             </div>
             <hr className="line"></hr>
+            <div className="pkm__abi">
+              <h3 className="text text-hover">Habilidades: </h3>
+              <div className="pkm__stats">
+                {shownPokemon.abilities?.map((element) => {
+                  return (
+                    <p
+                      key={element.slot}
+                      className="text text-hover pkm-capitalize"
+                    >
+                      {element.ability.name}
+                    </p>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </section>
       </main>

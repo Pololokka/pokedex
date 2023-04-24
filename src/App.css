@@ -186,6 +186,10 @@ html {
   background-color: var(--cor-1);
 }
 
+.App {
+  text-align: center;
+}
+
 .header {
   text-align: center;
   padding: 2em;
@@ -228,7 +232,7 @@ html {
   box-shadow: -3px 3px var(--cor-3);
 }
 
-.pkm-name {
+.pkm-capitalize {
   text-transform: capitalize;
 }
 
@@ -265,6 +269,14 @@ html {
   width: 100%;
 }
 
+.pkm__abi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  width: 100%;
+}
+
 hr {
   border: none;
 }
@@ -279,6 +291,10 @@ hr {
   width: 150px;
   height: 150px;
   padding-left: 2em;
+}
+
+.pkm__stats {
+  text-align: start;
 }
 
 .pkm__stats > p {
