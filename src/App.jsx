@@ -1,64 +1,11 @@
-import { useState, useEffect } from "react";
 import "./App.css";
 
-const initialPokemon = {
-  img: "",
-  name: "",
-  id: "",
-  height: "",
-  weight: "",
-  abilities: [],
-};
-
-const loadPokemon = {
-  img: "Carregando...",
-  name: "Carregando...",
-  id: "Carregando...",
-  height: "Carregando...",
-  weight: "Carregando...",
-  abilities: [],
-};
-
-const errorPokemon = {
-  img: "NA",
-  name: "NA",
-  id: "NA",
-  height: "NA",
-  weight: "NA",
-  abilities: [],
-};
+import { useState } from "react";
+import { showPokemon, initialPokemon } from "./Func/PokeAPI";
 
 function App() {
   const [shownPokemon, setShownPokemon] = useState(initialPokemon);
-  const [input, setInput] = useState("arcanine");
-
-  const fetchPokemon = async (pokemon) => {
-    const APIFetch = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemon}`
-    );
-    if (APIFetch.status === 200) {
-      const data = await APIFetch.json();
-      return data;
-    }
-  };
-
-  const showPokemon = async (pokemon) => {
-    setShownPokemon(loadPokemon);
-    const data = await fetchPokemon(pokemon);
-    console.log(data);
-    if (data) {
-      setShownPokemon({
-        img:
-          data.sprites.versions["generation-v"]["black-white"].animated
-            .front_default || data.sprites.front_default,
-        name: data.name,
-        id: data.id,
-        height: data.height / 10,
-        weight: data.weight / 10,
-        abilities: data.abilities,
-      });
-    } else setShownPokemon(errorPokemon);
-  };
+  const [input, setInput] = useState("");
 
   return (
     <>
@@ -84,7 +31,7 @@ function App() {
             type="button"
             value="Pesquisar!"
             className="text text-hover btn-stan"
-            onClick={() => showPokemon(input)}
+            onClick={() => showPokemon(input, setShownPokemon)}
           />
           <div className="pkm__show">
             {shownPokemon.name == "NA" && (
@@ -93,7 +40,7 @@ function App() {
             <div className="pkm__itens">
               <img
                 src={shownPokemon.img}
-                alt="Imagem do Pokemon"
+                alt={shownPokemon.name}
                 className="pkm-image"
               />
               <div className="pkm__stats">

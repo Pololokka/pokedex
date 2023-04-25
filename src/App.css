@@ -184,6 +184,7 @@ select {
 
 html {
   background-color: var(--cor-1);
+  padding-bottom: 1em;
 }
 
 .App {
@@ -192,7 +193,7 @@ html {
 
 .header {
   text-align: center;
-  padding: 2em;
+  padding: 1em;
 }
 
 .title {
@@ -288,9 +289,8 @@ hr {
 }
 
 .pkm-image {
-  width: 150px;
-  height: 150px;
-  padding-left: 2em;
+  max-width: 200px;
+  max-height: 200px;
 }
 
 .pkm__stats {
