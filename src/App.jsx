@@ -7,6 +7,8 @@ function App() {
   const [shownPokemon, setShownPokemon] = useState(initialPokemon);
   const [input, setInput] = useState("");
 
+  console.log(shownPokemon);
+
   return (
     <>
       <header className="header">
@@ -31,8 +33,12 @@ function App() {
             type="button"
             value="Pesquisar!"
             className="text text-hover btn-stan"
-            onClick={() => showPokemon(input, setShownPokemon)}
+            onClick={() => {
+              setInput("");
+              showPokemon(input, setShownPokemon);
+            }}
           />
+
           <div className="pkm__show">
             {shownPokemon.name == "NA" && (
               <p className="text text-hover">Pokémon não encontrado!</p>
@@ -56,7 +62,9 @@ function App() {
                 </p>
               </div>
             </div>
+
             <hr className="line"></hr>
+
             <div className="pkm__abi">
               <h3 className="text text-hover">Habilidades: </h3>
               <div className="pkm__stats">
@@ -71,6 +79,18 @@ function App() {
                   );
                 })}
               </div>
+            </div>
+
+            <hr className="line"></hr>
+
+            <div className="pkm__atributes">
+              {shownPokemon.stats?.map((element) => {
+                return (
+                  <p className="text text-hover pkm-capitalize">
+                    {element.stat.name} : {element.base_stat}
+                  </p>
+                );
+              })}
             </div>
           </div>
         </section>

@@ -5,6 +5,7 @@ export const initialPokemon = {
   height: "",
   weight: "",
   abilities: [],
+  stats: [],
 };
 
 const loadPokemon = {
@@ -14,6 +15,7 @@ const loadPokemon = {
   height: "Carregando...",
   weight: "Carregando...",
   abilities: [],
+  stats: [],
 };
 
 const errorPokemon = {
@@ -23,6 +25,7 @@ const errorPokemon = {
   height: "NA",
   weight: "NA",
   abilities: [],
+  stats: [],
 };
 
 export const fetchPokemon = async (pokemon) => {
@@ -47,6 +50,7 @@ export const showPokemon = async (pokemon, setState) => {
       height: data.height / 10,
       weight: data.weight / 10,
       abilities: data.abilities,
+      stats: data.stats,
     });
   } else setState(errorPokemon);
 };
