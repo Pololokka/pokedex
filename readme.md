@@ -2,7 +2,7 @@
 
 # Pokemon
 
-Pokemon
+Página onde um usuário pode buscar pokémons, e ver algumas informações sobre eles.
 
 ## Tecnologias
 
@@ -15,7 +15,11 @@ Pokemon
 
 ### Home
 
-Página onde o usuário pode adicionar seus links
+Página onde o usuário faz a busca por nome ou id.
+
+Caso o pokémon tenha um sprite na segunda geração, o a imagem exibida será essa, se não, aparecerá a imagem default do pokémon.
+
+A página também exibe informações adicionais, como altura, peso, habilidades, e atributos.
 
 ## Sobre
 
